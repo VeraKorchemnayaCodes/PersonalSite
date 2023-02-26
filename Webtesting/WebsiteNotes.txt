@@ -1,0 +1,26 @@
+veraspersonalsitebucket
+
+sudo su
+yum update -y
+yum install httpd -y
+chkconfig httpd on
+cd /var/www/html
+aws s3 sync s3://veraspersonalsitebucket /var/www/html
+service httpd start
+
+269:    # AddType allows you to add to or override the MIME configuration
+272:    #AddType application/x-gzip .tgz
+283:    AddType application/x-compress .Z
+284:    AddType application/x-gzip .gz .tgz
+305:    AddType text/html .shtml
+
+                       c:/php/php5apache2_2.dll
+LoadModule php5_module c:/PHP/php5apache2_2_filter.dll
+LoadModule php5_module c:/php/php5apache2.dll
+48:# have to place corresponding `LoadModule' lines at this location so the
+54:# LoadModule foo_module modules/mod_foo.so
+
+
+
+
+\href{https://www.linkedin.com/in/vera-korchemnaya/}{{linkedin.com/in/vera-korchemnaya}}

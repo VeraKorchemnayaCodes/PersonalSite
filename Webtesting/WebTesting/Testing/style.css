@@ -1,0 +1,14 @@
+.home {
+  display: none;
+}
+
+.about {
+  display: none;
+}
+
+.project {
+  display: none;
+}
+.active {
+  display: block;
+}

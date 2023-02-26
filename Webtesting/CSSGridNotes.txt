@@ -1,0 +1,4 @@
+grid container - holds all the grid items
+grid items - all the squares in the grid
+grid gaps - the size of the space between grid items
+grid tracks - actual lines between items

@@ -1,0 +1,99 @@
+* {
+  background-color: grey;
+}
+
+/* NOTES: 
+    Difference between justify content / align content
+    and justify items and align items
+
+    Justify content / align content is to align your container in it's container
+    - Example: you want the whole container to be in the center vertically
+    - you want the whole container to be in the center horizontally
+    - you want the content to have a certain spacing
+
+    Justify-content: aligns things according to the horizontal axis
+                     going from left to right
+    Align-content: aligns things according to the vertical axis going from
+                   top to bottom
+        If you want to use align-content you need to have a height for the 
+        content to align between
+
+
+    Justify items / align items will align items in rows and columns inside container
+    - Example: in the grid you want all items to start at the beginning of the row
+    - you want items to be in the center of the column
+    - By default justify-items and align-items are both set to stretch which is why
+        they take up the whole column and row
+    - we can target specific items but selecting their id and then using 
+        - align-self: (value);
+        - justify-self: (value);
+        - these will overwrite rules you had in the container
+
+*/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 300px 800px;
+  grid-auto-rows: minmax(75px, auto);
+  grid-gap: 20px;
+  /* Can specify separately or together */
+  /* grid-row-gap: 20px;
+  grid-column-gap: 20px; */
+
+  /* fraction. Similar to flex box grow. */
+  /* grid-template-columns: 2fr 1fr; */
+  /* grid-auto-rows: 150px;
+  grid-template-rows: 200px; */
+  border: 2px black solid;
+  background-color: red;
+
+  justify-content: space-evenly;
+  align-content: center;
+  height: calc(100vh - 66px);
+}
+
+.grid-item {
+  border: 2px green solid;
+}
+
+.grid-item-1 {
+  grid-column: span 2;
+}
+
+.grid-item-2 {
+  grid-row: span 4;
+}
+
+/* 
+aligning items using diff method from grid-area
+.grid-item-1 {
+  grid-column: span 3;
+  grid-column: (start) / (end) -1 goes to the end of the row
+  grid-column: span (number of rows to span)
+}
+
+.grid-item-2 {
+  grid-row: span 2;
+}
+
+.grid-item-3 {
+  grid-row: span 2;
+} */
+
+/* For grid template area */
+/*   grid-template-areas:
+    "header header"
+    "sidebar content"
+    "sidebar content"; */
+/* 
+.grid-item-1 {
+  grid-area: header;
+}
+
+.grid-item-2 {
+  grid-area: sidebar;
+}
+
+.grid-item-3 {
+  grid-area: content;
+} */

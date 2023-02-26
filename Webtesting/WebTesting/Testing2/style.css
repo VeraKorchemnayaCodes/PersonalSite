@@ -1,0 +1,17 @@
+main {
+  height: 100vh;
+  /* overflow: auto; */
+  scroll-snap-type: block mandatory;
+  scroll-padding: 4.25em;
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+section {
+  scroll-snap-align: start;
+  min-height: 50vh;
+  scroll-margin-top: 1em;
+}
