@@ -5,6 +5,7 @@
 }
 
 :root {
+  --header-height: 11vh;
   --header-background: rgb(34, 34, 34);
   --header-text-color: rgb(217, 217, 217);
   --header-text-hover: rgb(135, 135, 135);
@@ -12,9 +13,10 @@
   --clr-pop: rgb(212, 111, 9);
   --clr-pop-hover: rgba(212, 111, 9, 0.8);
   --clr-secondary: rgb(50, 50, 50);
+  --off-white: rgb(210, 210, 210);
   /* border used during development and testing */
   --temp-border: 2px orange solid;
-  --slide-height: calc(100vh - 66px);
+  --slide-height: calc(100vh - var(--header-height));
 }
 
 * {
@@ -34,7 +36,7 @@ For Snap Scrolling
   height: 100vh;
   overflow: auto;
   scroll-snap-type: block mandatory;
-  scroll-padding: 66px;
+  scroll-padding: var(--header-height);
 }
 
 section {
@@ -50,7 +52,8 @@ Sticky Nav Bar
 */
 header {
   background-color: var(--header-background);
-  padding: 0.75rem 2rem;
+  height: 11vh;
+  padding: 0 3vw;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -181,7 +184,7 @@ About Slide
 }
 
 .about .grid-item {
-  color: rgb(210, 210, 210);
+  color: var(--off-white);
   font-size: small;
   line-height: 1.5;
 }
@@ -231,7 +234,7 @@ Project Slide
 }
 
 .project .grid-item {
-  color: rgb(210, 210, 210);
+  color: var(--off-white);
   font-size: small;
   line-height: 1.5;
 }
@@ -280,44 +283,19 @@ Contact Slide
 
 */
 
-.contact .grid-container {
+.contact .email-container {
+  height: calc(var(--slide-height) - var(--header-height));
+  text-align: center;
   display: grid;
-  height: calc(var(--slide-height) - 69px);
-  grid-template-columns: 50vw;
   justify-content: center;
   align-content: center;
+  color: var(--off-white);
 }
 
-.contact .grid-item {
-  padding-bottom: 3vh;
-}
-
-.contact .grid-item-send {
-  text-align: center;
-  padding-bottom: 0px;
-}
-
-.contact input,
-.contact textarea {
-  color: rgb(210, 210, 210);
-  width: 100%;
-  height: 8vh;
-  border: none;
-  border-radius: 20px;
-  padding-left: 20px;
-  background-color: var(--header-background);
-}
-
-.contact input:focus,
-.contact textarea:focus {
-  border: 2px var(--clr-pop) solid;
-  outline: none;
-}
-
-.contact textarea {
-  padding-top: 10px;
-  height: 30vh;
-  resize: none;
+.contact h1 {
+  font-family: Keroximport;
+  color: var(--off-white);
+  line-height: 3rem;
 }
 
 /* 
@@ -328,10 +306,11 @@ Contact Slide Footer
 
 footer {
   background-color: var(--header-background);
-  padding: 0.75rem 2rem;
-  display: flex;
-  align-items: center;
+  height: var(--header-height);
+  padding: 0 3vw;
+  display: grid;
   justify-content: center;
+  align-content: center;
   color: var(--header-text-color);
 }
 
@@ -341,6 +320,8 @@ footer img {
 
 footer ul {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer li {
