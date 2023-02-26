@@ -1,0 +1,385 @@
+/* Custom font only for Home Slide logo and title */
+@font-face {
+  font-family: Keroximport;
+  src: url(Kerox.otf);
+}
+
+:root {
+  --header-background: rgb(34, 34, 34);
+  --header-text-color: rgb(217, 217, 217);
+  --header-text-hover: rgb(135, 135, 135);
+  --clr-primary-hover: rgba(100, 100, 100, 0.4);
+  --clr-pop: rgb(212, 111, 9);
+  --clr-pop-hover: rgba(212, 111, 9, 0.8);
+  --clr-secondary: rgb(50, 50, 50);
+  /* border used during development and testing */
+  --temp-border: 2px orange solid;
+  --slide-height: calc(100vh - 66px);
+}
+
+* {
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+For Snap Scrolling
+
+*/
+
+.scroll-container {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: block mandatory;
+  scroll-padding: 66px;
+}
+
+section {
+  scroll-snap-align: start;
+  height: var(--slide-height);
+}
+
+/* 
+Sticky Nav Bar
+
+
+
+*/
+header {
+  background-color: var(--header-background);
+  padding: 0.75rem 2rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  font-family: Keroximport;
+  color: var(--header-text-color);
+  cursor: default;
+  transition: text-shadow 300ms ease-in;
+}
+
+.logo:hover {
+  cursor: default;
+  text-shadow: 0 0 0.2rem var(--header-text-hover);
+}
+
+header a,
+header button {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--header-text-color);
+  text-decoration: none;
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav-list li {
+  display: inline-block;
+}
+
+.nav-list li a {
+  padding: 9px 25px;
+  margin: 0.75rem;
+  border-radius: 1rem;
+  transition: background 300ms ease-in;
+}
+
+/* active classes for scrolling hover effect */
+.nav-list li a:hover,
+.nav-list .active {
+  background: var(--clr-primary-hover);
+}
+
+.btn-contact button,
+#send {
+  padding: 9px 25px;
+  background-color: transparent;
+  color: var(--clr-pop);
+  border: 3px solid var(--clr-pop);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.btn-contact button:hover,
+header .contact.active button,
+#send:hover {
+  box-shadow: 0 0 5px var(--clr-pop-hover);
+}
+
+/* 
+Slides 
+
+
+
+
+
+*/
+
+/* 
+Home Slide
+
+
+
+*/
+
+.home {
+  height: var(--slide-height);
+  background: url(images/home/mountain.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.home main {
+  margin-top: 50vh;
+  margin-bottom: 15vh;
+}
+.home main h1 {
+  font-size: 40px;
+  font-family: Keroximport;
+  color: white;
+  text-shadow: 0 0 0.5rem black;
+}
+
+/* Background for all slides excluding home slide */
+.slide-background {
+  background-color: var(--clr-secondary);
+}
+
+/* 
+About Slide
+
+
+
+
+*/
+
+.about .grid-container {
+  display: grid;
+  height: var(--slide-height);
+  grid-template-columns: 25vw 65vw;
+  row-gap: 25px;
+  column-gap: 30px;
+
+  justify-content: center;
+  align-content: center;
+}
+
+.about .grid-item {
+  color: rgb(210, 210, 210);
+  font-size: small;
+  line-height: 1.5;
+}
+
+.about .grid-item-photo {
+  grid-row: span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 75vh;
+}
+
+.about .grid-item-photo img {
+  width: 25vw;
+}
+
+.about hr,
+.project hr {
+  height: 3px;
+  margin: 2px;
+  background-color: grey;
+  border: none;
+}
+
+.about ul,
+.project ul {
+  padding-left: 20px;
+}
+
+/* 
+Project Slide
+
+
+
+
+*/
+
+.project .grid-container {
+  display: grid;
+  height: var(--slide-height);
+  grid-template-columns: 800px 200px;
+  grid-row-gap: 25px;
+  grid-column-gap: 30px;
+  justify-content: center;
+  align-content: center;
+}
+
+.project .grid-item {
+  color: rgb(210, 210, 210);
+  font-size: small;
+  line-height: 1.5;
+}
+
+.project .grid-item-sidebar {
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  grid-row: span 4;
+}
+
+.project img {
+  transition: all 300ms ease-in;
+}
+
+.project img:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+  cursor: pointer;
+}
+
+/* 
+Resume slide 
+
+
+
+
+*/
+
+.frame-container {
+  height: var(--slide-height);
+}
+
+iframe {
+  background-color: rgb(61, 61, 61);
+  border: 20px var(--clr-secondary) solid;
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+Contact Slide
+
+
+
+
+*/
+
+.contact .grid-container {
+  display: grid;
+  height: calc(var(--slide-height) - 69px);
+  grid-template-columns: 50vw;
+  justify-content: center;
+  align-content: center;
+}
+
+.contact .grid-item {
+  padding-bottom: 3vh;
+}
+
+.contact .grid-item-send {
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.contact input,
+.contact textarea {
+  color: rgb(210, 210, 210);
+  width: 100%;
+  height: 8vh;
+  border: none;
+  border-radius: 20px;
+  padding-left: 20px;
+  background-color: var(--header-background);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border: 2px var(--clr-pop) solid;
+  outline: none;
+}
+
+.contact textarea {
+  padding-top: 10px;
+  height: 30vh;
+  resize: none;
+}
+
+/* 
+Contact Slide Footer
+
+
+*/
+
+footer {
+  background-color: var(--header-background);
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--header-text-color);
+}
+
+footer img {
+  height: 7vh;
+}
+
+footer ul {
+  display: flex;
+}
+
+footer li {
+  display: inline-block;
+  padding: 10px;
+}
+
+footer a {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--header-text-color);
+}
+
+/* 
+Bugs / Extra
+
+/* 
+   Animation causes overlapping issues with the nav bar
+   when scrolling. 
+   
+   Explaination: The bouncing arrow will overlap the sticky 
+   nav bar when scrolling down.
+*/
+
+/* .home footer object {
+  animation: bounce 2s linear infinite;
+}
+
+@keyframes bounce {
+  20% {
+    transform: translateY(8px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(4px);
+  }
+  55% {
+    transform: translateY(0);
+  }
+} */
