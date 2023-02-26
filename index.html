@@ -18,25 +18,30 @@
 
       <nav>
         <ul class="nav-list">
-          <li><a class="about" href="#about">About</a></li>
-          <li><a class="project" href="#project">Projects</a></li>
-          <li><a class="resume" href="#resume">Resume</a></li>
+          <li>
+            <a class="about tab" href="#about">About</a>
+          </li>
+          <li>
+            <a class="project tab" href="#project">Projects</a>
+          </li>
+          <li>
+            <a class="resume tab" href="#resume">Resume</a>
+          </li>
+          <li>
+            <a id="toggleContactTab" class="contact tab" href="#contact">Contact</a>
+          </li>
         </ul>
       </nav>
 
-      <a class="contact btn-contact" href="#contact"><button>Contact</button></a>
+      <a class="contact btn-contact tab" href="#contact"><button>Contact</button></a>
+
+      <button class="toggle-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </header>
-
-    <section class="home">
-
-      <main>
-        <h1>My Perfolio</h1>
-      </main>
-
-      <div>
-        <img src="images/home/arrow-down.png" alt="arrow down" width="50" height="50">
-      </div>
-    </section>
 
     <section class="about slide-background" id="about">
       <div class="grid-container">
@@ -46,23 +51,24 @@
         <div class="grid-item grid-item-1">
           <h2><b>EDUCATION</b></h2>
           <hr>
-          <h3><b>Eastern Washington University | GPA: 3.96</b></h3>
+          <h3><b>Eastern Washington University | GPA: 3.97</b></h3>
           <h3><i>Bachelor of Computer Science</i></h3>
           <ul>
-            <li><b>Favorite Courses: </b> Data Structures, Computer Engineering, Databases, Web App Development</li>
-            <li><b>Graduation:</b> June 2023</li>
+            <li><b>Favorite Courses: </b> .Net Web App Development, Data Structures, Computer Engineering, Databases
+            </li>
+            <li><b>Graduation:</b> December 2023</li>
           </ul>
         </div>
         <div class="grid-item grid-item-2">
-          <h2><b>SKILLS</b></h2>
+          <h2><b>Experience</b></h2>
           <hr>
+          <h3>Website Developer Intern</h3>
           <ul>
-            <li>Experience creating <b>PHP</b> projects using the <b>Laravel framework</b></li>
-            <li><b>Java</b> problem solving</li>
-            <li>Knowledge in creating a website from start to finish using <b> HTML5, CSS3 and JavaScript</b></li>
-            <li>Familiar with the <b> Agile Framework</b> and its principles</li>
-            <li>Knowledge of supporting skills: <b>MySQL, Visual Studio Code, Eclipse, GitHub,
-                Unix</b></li>
+            <li><b>Automated Tasks:</b> Utilized Google Apps Script to improve efficiency and save trainers valuable
+              time</li>
+            <li><b>Updated Resources:</b> Improved site readability and updated outdated information, while preserving
+              existing theme</li>
+            <li><b>Built New Resources:</b> Created new pages and templates that have been integrated into the site</li>
           </ul>
         </div>
         <div class="grid-item grid-item-3">
@@ -70,9 +76,7 @@
           <hr>
 
           <p>My mission is to never stop learning new skills and developing myself in order to better serve others
-            and to transform the
-            world
-            with software.</p>
+            and to transform the world through software.</p>
         </div>
       </div>
 
@@ -80,17 +84,20 @@
 
 
 
-    <section class="project slide-background" id="project">
+    <section class="project slide-background section-1" id="project">
       <div class="grid-container">
 
         <div class="grid-item grid-item-1">
-          <h2><b>PERSONAL WEBSITE</b></h2>
+          <h2><b>Group Project: Home Design Application (2022-Current)</b></h2>
           <hr>
           <ul>
-            <li>Gained experience with <b>DOM manipulation</b> and working with <b>JavaScript</b></li>
-            <li>Learned a lot about <b>CSS3 grid and animations</b></li>
-            <li>Form submission</li>
-            <li>Worked with <b>AWS</b> to launch my website to the world</li>
+            <li>Collaborated with a team of 4 to build a 2D desktop application that allows home designers to easily
+              create floor plans and arrange furniture to meet their specific needs</li>
+            <li>Incorporated features such as custom item creation, multiple floor support, and workspace comparison, to
+              enhance the design process</li>
+            <li>Designed a seamless user experience, including drag and drop item functionality, saving progress and
+              switching
+              between editing and arranging modes</li>
           </ul>
         </div>
         <div class="grid-item grid-item-sidebar">
@@ -101,37 +108,58 @@
         </div>
 
         <div class="grid-item grid-item-2">
-          <h2><b>COMIC BOOK COLLECTION APP</b></h2>
+          <h2><b>Personal Website</b></h2>
           <hr>
           <ul>
-            <li>Used the <b>Laravel Framework</b> to create a <b>CRUD project</b> by setting up resourceful controllers
-              and views</li>
-            <li>Utilized <b>template layouts</b> for cohesion and to follow the <b>DRY principle</b></li>
-            <li>Implemented <b>success / information messages</b> and <b>data validation</b> for creating / editing
-              entries</li>
-            <li>Created a <b>database seeder</b> with the help of an <b>external library</b></li>
-          </ul>
-        </div>
-        <div class="grid-item grid-item-3">
-          <h2>LARAVEL PROJECT AND EXTERNAL DATA</h2>
-          <hr>
-          <ul>
-            <li>Set up a <b>database</b> in Laravel by creating a <b>migration</b> and an <b>Eloquent Model</b></li>
-            <li>Created a <b>PHP</b> program to insert data from an <b>API</b> directly <b>into the database</b></li>
-          </ul>
-        </div>
-        <div class="grid-item grid-item-4">
-          <h2>MORTGAGE CALCULATOR</h2>
-          <hr>
-          <ul>
-            <li>Created <b>interactive user interface</b> and collected input data using a <b>HTML form</b></li>
-            <li>Used the data to calculate <b>monthly mortagage</b> and print an <b>amortization schedule</b> using
-              <b>PHP</b>
-            </li>
+            <li>Developed a website from scratch using HTML5, CSS3, and JavaScript</li>
+            <li>Implemented responsive design with media queries to ensure optimal viewing experience across various
+              devices,
+              including creation of a mobile-friendly menu</li>
+            <li>Developed an understanding of DOM manipulation in JavaScript</li>
+            <li>Launched the website using AWS utilizing Route 53, S3, and a Linux EC2 instance</li>
           </ul>
         </div>
       </div>
     </section>
+
+
+    <!-- <section class="project slide-background section-2" id="project">
+      <div class="grid-container">
+
+        <div class="grid-item grid-item-1">
+          <h2><b>Section2 Group Project: Home Design Application (2022-Current)</b></h2>
+          <hr>
+          <ul>
+            <li>Collaborated with a team of 4 to build a 2D desktop application that allows home designers to easily
+              create floor plans and arrange furniture to meet their specific needs</li>
+            <li>Incorporated features such as custom item creation, multiple floor support, and workspace comparison, to
+              enhance the design process</li>
+            <li>Designed a seamless user experience, including drag and drop item functionality, saving progress and
+              switching
+              between editing and arranging modes</li>
+          </ul>
+        </div>
+        <div class="grid-item grid-item-sidebar">
+          <h2>SEE MY CODE</h2>
+          <a href="https://github.com/VeraKorchemnaya/ResumeProjects" target="blank"><img
+              src="images/projects/new-tab.png" alt="GitHub Link"></a>
+
+        </div>
+
+        <div class="grid-item grid-item-2">
+          <h2><b>Personal Website</b></h2>
+          <hr>
+          <ul>
+            <li>Developed a website from scratch using HTML5, CSS3, and JavaScript</li>
+            <li>Implemented responsive design with media queries to ensure optimal viewing experience across various
+              devices,
+              including creation of a mobile-friendly menu</li>
+            <li>Developed an understanding of DOM manipulation in JavaScript</li>
+            <li>Launched the website using AWS utilizing Route 53, S3, and a Linux EC2 instance</li>
+          </ul>
+        </div>
+      </div>
+    </section> -->
 
 
 
@@ -151,21 +179,26 @@
 
       <footer>
         <ul>
-          <a href="https://app.joinhandshake.com/users/17597183" target="blank">
+          <a class="icon" href="https://app.joinhandshake.com/users/17597183" target="blank">
             <img src="images/footer/handshake.png" alt="Handshake">
           </a>
-
-          <a href="https://app.joinhandshake.com/users/17597183" target="blank">
+          <a class="link" href="https://app.joinhandshake.com/users/17597183" target="blank">
             <li>Handshake</li>
           </a>
 
-          <img src="images/footer/mail.png" alt="Email">
-          <li>vkorchemnaya@ewu.edu</li>
 
-          <a href="https://www.linkedin.com/in/vera-korchemnaya/" target="blank">
+          <a class="icon" href="mailto:vkorchemnaya@ewu.edu">
+            <img src="images/footer/mail.png" alt="Email">
+          </a>
+          <a class="link" href="mailto:vkorchemnaya@ewu.edu">
+            <li>vkorchemnaya@ewu.edu</li>
+          </a>
+
+
+          <a class="icon" href="https://www.linkedin.com/in/vera-korchemnaya/" target="blank">
             <img src="images/footer/linkedIn.png" alt="LinkedIn">
           </a>
-          <a href="https://www.linkedin.com/in/vera-korchemnaya/" target="blank">
+          <a class="link" href="https://www.linkedin.com/in/vera-korchemnaya/" target="blank">
             <li>LinkedIn</li>
           </a>
         </ul>

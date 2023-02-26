@@ -11,23 +11,59 @@ let callback = (entries) => {
         let target = entry.target;
         let pageName = target.classList.item(0);
 
+
+        let headerItem;
+        if (target.classList.contains("project")) {
+            headerItem = document.querySelector(`header .project`);
+        } else {
+            headerItem = document.querySelector(`header .${pageName}`);
+        }
+        if (headerItem.classList.contains("active")) {
+            headerItem.classList.remove("active");
+        }
+
         if (entry.intersectionRatio >= .35) {
-            if (pageName !== "home") {
-                let headerItem = document.querySelector(`header .${pageName}`);
-                headerItem.classList.add("active");
+            let headerItem;
+            if (target.classList.contains("project")) {
+                headerItem = document.querySelector(`header .project`);
+            } else {
+                headerItem = document.querySelector(`header .${pageName}`);
             }
+            headerItem.classList.add("active");
 
         } else {
-            if (pageName !== "home") {
-                let headerItem = document.querySelector(`header .${pageName}`);
-                if (headerItem.classList.contains("active")) {
-                    headerItem.classList.remove("active");
-                }
-            }
+
         }
     });
 };
 let observer = new IntersectionObserver(callback, options);
 sections.forEach((section) => {
     observer.observe(section);
+});
+
+
+
+
+
+// Smooth tab scroll
+
+const tabs = document.querySelectorAll('.tab');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', event => {
+        event.preventDefault();
+        const targetId = tab.getAttribute('href');
+        const target = document.querySelector(targetId);
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Toggle the nav on mobile screens
+const navToggle = document.querySelector('.toggle-nav');
+const nav = document.querySelector('nav');
+const contactButton = document.querySelector('#toggleContactTab');
+
+navToggle.addEventListener('click', function () {
+    nav.classList.toggle('active');
+    contactButton.classList.toggle('on');
 });

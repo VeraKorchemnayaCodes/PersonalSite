@@ -1,4 +1,4 @@
-/* Custom font only for Home Slide logo and title */
+/* Custom font only for logo */
 @font-face {
   font-family: Keroximport;
   src: url(Kerox.otf);
@@ -9,13 +9,12 @@
   --header-background: rgb(34, 34, 34);
   --header-text-color: rgb(217, 217, 217);
   --header-text-hover: rgb(135, 135, 135);
-  --clr-primary-hover: rgba(100, 100, 100, 0.4);
+  --clr-primary-hover: rgb(60, 60, 60);
   --clr-pop: rgb(212, 111, 9);
   --clr-pop-hover: rgba(212, 111, 9, 0.8);
   --clr-secondary: rgb(50, 50, 50);
-  --off-white: rgb(210, 210, 210);
-  /* border used during development and testing */
-  --temp-border: 2px orange solid;
+  --off-white: rgb(186, 186, 186);
+  --bold-white: rgb(230, 230, 230);
   --slide-height: calc(100vh - var(--header-height));
 }
 
@@ -27,6 +26,16 @@
   padding: 0;
 }
 
+body {
+  font-size: 1.1vw;
+  color: var(--off-white);
+  line-height: 1.5;
+}
+
+b {
+  color: var(--bold-white);
+}
+
 /* 
 For Snap Scrolling
 
@@ -34,7 +43,8 @@ For Snap Scrolling
 
 .scroll-container {
   height: 100vh;
-  overflow: auto;
+  width: 100vw;
+  overflow-x: hidden;
   scroll-snap-type: block mandatory;
   scroll-padding: var(--header-height);
 }
@@ -64,7 +74,7 @@ header {
 
 .logo {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 25px;
   font-family: Keroximport;
   color: var(--header-text-color);
   cursor: default;
@@ -79,7 +89,7 @@ header {
 header a,
 header button {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.3vw;
   color: var(--header-text-color);
   text-decoration: none;
 }
@@ -105,8 +115,11 @@ header button {
   background: var(--clr-primary-hover);
 }
 
-.btn-contact button,
-#send {
+.nav-list #toggleContactTab {
+  display: none;
+}
+
+.btn-contact button {
   padding: 9px 25px;
   background-color: transparent;
   color: var(--clr-pop);
@@ -117,9 +130,29 @@ header button {
 }
 
 .btn-contact button:hover,
-header .contact.active button,
-#send:hover {
+header .contact.active button {
   box-shadow: 0 0 5px var(--clr-pop-hover);
+}
+
+/*  For responsive design   */
+
+.toggle-nav {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.toggle-nav span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--off-white);
+  border-radius: 3px;
 }
 
 /* 
@@ -131,35 +164,7 @@ Slides
 
 */
 
-/* 
-Home Slide
-
-
-
-*/
-
-.home {
-  height: var(--slide-height);
-  background: url(images/home/mountain.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  overflow: hidden;
-  text-align: center;
-}
-
-.home main {
-  margin-top: 50vh;
-  margin-bottom: 15vh;
-}
-.home main h1 {
-  font-size: 40px;
-  font-family: Keroximport;
-  color: white;
-  text-shadow: 0 0 0.5rem black;
-}
-
-/* Background for all slides excluding home slide */
+/* Background for all slides */
 .slide-background {
   background-color: var(--clr-secondary);
 }
@@ -175,18 +180,12 @@ About Slide
 .about .grid-container {
   display: grid;
   height: var(--slide-height);
-  grid-template-columns: 25vw 65vw;
-  row-gap: 25px;
-  column-gap: 30px;
-
+  top: var(--header-height);
+  grid-template-columns: 25% 50%;
+  row-gap: 2%;
+  column-gap: 5%;
   justify-content: center;
   align-content: center;
-}
-
-.about .grid-item {
-  color: var(--off-white);
-  font-size: small;
-  line-height: 1.5;
 }
 
 .about .grid-item-photo {
@@ -226,27 +225,22 @@ Project Slide
 .project .grid-container {
   display: grid;
   height: var(--slide-height);
-  grid-template-columns: 800px 200px;
-  grid-row-gap: 25px;
-  grid-column-gap: 30px;
+  grid-template-columns: 50% 10%;
+  grid-row-gap: 5%;
+  grid-column-gap: 5%;
   justify-content: center;
   align-content: center;
-}
-
-.project .grid-item {
-  color: var(--off-white);
-  font-size: small;
-  line-height: 1.5;
 }
 
 .project .grid-item-sidebar {
   text-align: center;
   align-self: center;
   justify-self: center;
-  grid-row: span 4;
+  grid-row: span 2;
 }
 
 .project img {
+  width: 90%;
   transition: all 300ms ease-in;
 }
 
@@ -289,12 +283,10 @@ Contact Slide
   display: grid;
   justify-content: center;
   align-content: center;
-  color: var(--off-white);
 }
 
 .contact h1 {
   font-family: Keroximport;
-  color: var(--off-white);
   line-height: 3rem;
 }
 
@@ -335,32 +327,77 @@ footer a {
   color: var(--header-text-color);
 }
 
-/* 
-Bugs / Extra
+@media (max-width: 767px) {
+  body {
+    font-size: 2vw;
+  }
 
-/* 
-   Animation causes overlapping issues with the nav bar
-   when scrolling. 
-   
-   Explaination: The bouncing arrow will overlap the sticky 
-   nav bar when scrolling down.
-*/
+  .toggle-nav {
+    display: flex;
+  }
 
-/* .home footer object {
-  animation: bounce 2s linear infinite;
+  /* For footer icons */
+  nav,
+  .btn-contact,
+  .link {
+    display: none;
+  }
+
+  .icon {
+    padding: 0 2vw;
+  }
+
+  /* Change about page layout */
+  .about .grid-container {
+    grid-template-columns: 80%;
+    row-gap: 3vh;
+    column-gap: 0;
+  }
+
+  .about .grid-item-photo {
+    grid-row: inherit;
+    height: auto;
+  }
 }
 
-@keyframes bounce {
-  20% {
-    transform: translateY(8px);
+@media (max-width: 767px) {
+  .toggle-nav {
+    display: flex;
   }
-  30% {
-    transform: translateY(0);
+
+  nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
   }
-  45% {
-    transform: translateY(4px);
+
+  nav.active {
+    display: block;
+    background-color: var(--header-background);
   }
-  55% {
-    transform: translateY(0);
+
+  nav li {
+    text-align: center;
   }
-} */
+
+  nav a {
+    font-size: 2vw;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-list li a {
+    padding: 9px 18px;
+    margin: 0.7rem;
+  }
+
+  #toggleContactTab.on {
+    display: flex;
+  }
+}
