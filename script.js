@@ -11,28 +11,14 @@ let callback = (entries) => {
         let target = entry.target;
         let pageName = target.classList.item(0);
 
-
-        let headerItem;
-        if (target.classList.contains("project")) {
-            headerItem = document.querySelector(`header .project`);
-        } else {
-            headerItem = document.querySelector(`header .${pageName}`);
-        }
-        if (headerItem.classList.contains("active")) {
-            headerItem.classList.remove("active");
-        }
-
         if (entry.intersectionRatio >= .35) {
-            let headerItem;
-            if (target.classList.contains("project")) {
-                headerItem = document.querySelector(`header .project`);
-            } else {
-                headerItem = document.querySelector(`header .${pageName}`);
-            }
+            let headerItem = document.querySelector(`header .${pageName}`);
             headerItem.classList.add("active");
-
         } else {
-
+            let headerItem = document.querySelector(`header .${pageName}`);
+            if (headerItem.classList.contains("active")) {
+                headerItem.classList.remove("active");
+            }
         }
     });
 };
@@ -40,8 +26,6 @@ let observer = new IntersectionObserver(callback, options);
 sections.forEach((section) => {
     observer.observe(section);
 });
-
-
 
 
 
