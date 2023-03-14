@@ -1,4 +1,4 @@
-// The following section was created with help from Jignesh Patel,
+// Slide show effect was created with help from Jignesh Patel,
 // from his website imjignesh.com
 // URL: https://imjignesh.com/how-to-trigger-css-animation-on-scroll/
 
@@ -43,6 +43,7 @@ tabs.forEach(tab => {
 });
 
 // Toggle the nav on mobile screens
+
 const navToggle = document.querySelector('.toggle-nav');
 const nav = document.querySelector('nav');
 const contactButton = document.querySelector('#toggleContactTab');

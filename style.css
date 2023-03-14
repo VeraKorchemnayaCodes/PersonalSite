@@ -74,7 +74,6 @@ header {
 
 .logo {
   font-weight: 700;
-  font-size: 25px;
   font-family: Keroximport;
   color: var(--header-text-color);
   cursor: default;
@@ -109,14 +108,10 @@ header button {
   transition: background 300ms ease-in;
 }
 
-/* active classes for scrolling hover effect */
+/* active classes for scrolling/hover effect */
 .nav-list li a:hover,
 .nav-list .active {
   background: var(--clr-primary-hover);
-}
-
-.nav-list #toggleContactTab {
-  display: none;
 }
 
 .btn-contact button {
@@ -135,6 +130,10 @@ header .contact.active button {
 }
 
 /*  For responsive design   */
+
+.nav-list #toggleContactTab {
+  display: none;
+}
 
 .toggle-nav {
   display: none;
@@ -326,13 +325,11 @@ footer a {
   color: var(--header-text-color);
 }
 
+/* Responsive Design */
+
 @media (max-width: 767px) {
   body {
     font-size: 2vw;
-  }
-
-  .toggle-nav {
-    display: flex;
   }
 
   /* For footer icons */
